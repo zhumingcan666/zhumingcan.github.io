@@ -10,10 +10,10 @@
                 background-size: cover;
                 height: 1800px;
                 width: 1500px;">
-
+<!--预设脚本如下-->
         <script>
             var visitor = localStorage.getItem('name');
-            if(visitor != "null" && visitor != ""&& visitor!=null){
+            if(visitor != "null" && visitor != "" && visitor!=null){
                 let message = "你好, " + visitor + "!欢迎你的再次来访";
                 alert(message);
             }
@@ -26,12 +26,22 @@
                 }
             }
         </script>
-
-        <div id="repository" style="display: none;">
+<!--正式展示内容如下-->
+    <div id="mainContent" style="display: none;">
+        <div id="repository" class="mainContent">
             <i style="font-size:xx-large;">个人仓库地址</i><br>
             <a href="https://github.com/zhumingcan666/ios_Calculator.git"><strong style="color:brown;font-size: x-large;">Calculator</strong></a>
             <a href="https://github.com/zhumingcan666/CarrotFantasy.git"><strong style="color: brown;font-size: x-large;">CarrotFantasy</strong></a>
         </div>
+
+        <div id="books" class="mainContent">
+            <i style="font-size:xx-large;">个人书架</i><br>
+            <strong style="color:brown;font-size: x-large;">SwiftUI与Combine编程</strong>
+            <a href="books/swift.equb"><i>在线阅读</i></a> <i style="font-size: x-large;">or</i> <a href="books/swift.equb" download><i>下载</i></a>
+        </div>
+    </div>
+
+<!--以下为非正式页面内容-->
 
         <div id="overLay">
             <div class="popUp">
@@ -46,7 +56,7 @@
             <script>
                 function checked(){
                     var overLay = document.getElementById("overLay");
-                    var others = document.getElementById("repository");
+                    var others = document.getElementById("mainContent");
                     overLay.style.display = "none";
                     others.style.display = "block";
                 }
