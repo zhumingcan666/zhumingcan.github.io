@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <title>zhumingcan_web</title>
         <link rel="stylesheet" type="text/css" href="popWindow.css">
     </head>
@@ -14,21 +14,21 @@
         <script>
             var visitor = localStorage.getItem('name');
             if(visitor != "null" && visitor != ""){
-                let message = "ÄãºÃ, " + visitor + "!»¶Ó­ÄãµÄÔÙ´ÎÀ´·Ã";
+                let message = "ä½ å¥½, " + visitor + "!æ¬¢è¿ä½ çš„å†æ¬¡æ¥è®¿";
                 alert(message);
             }
             else{
-                visitor = window.prompt("Please enter your nickname or name to let me know who is visiting\nÇëÊäÈëÄãµÄêÇ³Æ»òĞÕÃûÈÃÎÒÖªµÀÊÇË­ÔÚ·ÃÎÊ","kobe");
+                visitor = window.prompt("Please enter your nickname or name to let me know who is visiting\nè¯·è¾“å…¥ä½ çš„æ˜µç§°æˆ–å§“åè®©æˆ‘çŸ¥é“æ˜¯è°åœ¨è®¿é—®","kobe");
                 localStorage.setItem('name',visitor);
                 if(visitor != null && visitor != ""){
-                    let message = "ÄãºÃ, " + visitor + "! ½ñÌìĞÄÇéÈçºÎ£¿";
+                    let message = "ä½ å¥½, " + visitor + "! ä»Šå¤©å¿ƒæƒ…å¦‚ä½•ï¼Ÿ";
                     alert(message);
                 }
             }
         </script>
 
         <div id="repository">
-            <i style="font-size:xx-large;">¸öÈË²Ö¿âµØÖ·</i><br>
+            <i style="font-size:xx-large;">ä¸ªäººä»“åº“åœ°å€</i><br>
             <a href="https://github.com/zhumingcan666/ios_Calculator.git"><strong style="color:brown;font-size: x-large;">Calculator</strong></a>
             <a href="https://github.com/zhumingcan666/CarrotFantasy.git"><strong style="color: brown;font-size: x-large;">CarrotFantasy</strong></a>
         </div>
@@ -36,10 +36,10 @@
         <div id="overLay">
             <div class="popUp">
                 <i class="popUpTitle">WELCOME!</i><br>
-                <i class="popUpContent">Ëæ±ã¿´¿´°É</i>
+                <i class="popUpContent">éšä¾¿çœ‹çœ‹å§</i>
                 <div class="popUpButtomBlock">
-                    <button class="popUpButton" onclick="checked()">ÒÑÔÄ</button>
-                    <button class="popUpButton" onclick="checked()">¹ö¹ö¹ö</button>
+                    <button class="popUpButton" onclick="checked()">å·²é˜…</button>
+                    <button class="popUpButton" onclick="checked()">æ»šæ»šæ»š</button>
                 </div>
             </div>
 
