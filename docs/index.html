@@ -3,12 +3,63 @@
     <head>
         <meta charset="utf-8">
         <title>zhumingcan_web</title>
-
+        <link rel="stylesheet" type="text/css" href="popWindow.css">
     </head>
     <body background="images/gura.JPG"
-        style="background-repeat:no-repeat
-                background-attachment:fixed
-                background-size:cover">
-      <a href="https://github.com/zhumingcan666/ios_Calculator.git">Calculator</a>
+        style="background-repeat:no-repeat;
+                background-size: cover;
+                height: 1800px;
+                width: 1500px;">
+
+        <script>
+            var visitor = localStorage.getItem('name');
+            if(visitor != "null" && visitor != ""){
+                let message = "你好, " + visitor + "!欢迎你的再次来访";
+                alert(message);
+            }
+            else{
+                visitor = window.prompt("Please enter your nickname or name to let me know who is visiting\n请输入你的昵称或姓名让我知道是谁在访问","kobe");
+                localStorage.setItem('name',visitor);
+                if(visitor != null && visitor != ""){
+                    let message = "你好, " + visitor + "! 今天心情如何？";
+                    alert(message);
+                }
+            }
+        </script>
+
+        <div id="repository">
+            <i style="font-size:xx-large;">个人仓库地址</i><br>
+            <a href="https://github.com/zhumingcan666/ios_Calculator.git"><strong style="color:brown;font-size: x-large;">Calculator</strong></a>
+            <a href="https://github.com/zhumingcan666/CarrotFantasy.git"><strong style="color: brown;font-size: x-large;">CarrotFantasy</strong></a>
+        </div>
+
+        <div id="overLay">
+            <div class="popUp">
+                <i class="popUpTitle">WELCOME!</i><br>
+                <i class="popUpContent">随便看看吧</i>
+                <div class="popUpButtomBlock">
+                    <button class="popUpButton" onclick="checked()">已阅</button>
+                    <button class="popUpButton" onclick="checked()">滚滚滚</button>
+                </div>
+            </div>
+
+            <script>
+                function checked(){
+                    var overLay = document.getElementById("overLay");
+                    var others = document.getElementById("repository");
+                    overLay.style.display = "none";
+                    others.style.display = "block";
+                }
+                function showPopWindow(){
+                    var overLay = document.getElementById("overLay");
+                    var others = document.getElementById("repository");
+                    overLay.style.display = "block";
+                    others.style.display = "none";
+                }
+                window.onload = showPopWindow;
+            </script>
+        </div>
+
+
     </body>
 </html>
