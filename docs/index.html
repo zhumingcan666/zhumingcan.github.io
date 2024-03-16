@@ -27,7 +27,7 @@
             }
         </script>
 
-        <div id="repository">
+        <div id="repository" style="display: none;">
             <i style="font-size:xx-large;">个人仓库地址</i><br>
             <a href="https://github.com/zhumingcan666/ios_Calculator.git"><strong style="color:brown;font-size: x-large;">Calculator</strong></a>
             <a href="https://github.com/zhumingcan666/CarrotFantasy.git"><strong style="color: brown;font-size: x-large;">CarrotFantasy</strong></a>
@@ -52,9 +52,7 @@
                 }
                 function showPopWindow(){
                     var overLay = document.getElementById("overLay");
-                    var others = document.getElementById("repository");
                     overLay.style.display = "block";
-                    others.style.display = "none";
                 }
                 window.onload = showPopWindow;
             </script>
