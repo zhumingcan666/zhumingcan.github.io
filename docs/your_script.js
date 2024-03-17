@@ -1,7 +1,7 @@
 // 初始化 LeanCloud
 AV.init({
-  appId: 'YOUR_APP_ID',
-  appKey: 'YOUR_APP_KEY'
+  appId: 'HiLEQW3JY361nRTpUYIdu8V3-gzGzoHsz',
+  appKey: 'xDW9CgvGM3XNWt5eFp7AOBRA'
 });
 
 // 留言表单提交事件处理
