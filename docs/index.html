@@ -11,7 +11,7 @@
                 height: 1800px;
                 width: 1500px;">
 <!--预设脚本如下-->
-        浏览量:&nbsp;<span id="" class="leancloud_visitors" data-flag-title=""> - </span>次
+        浏览量:&nbsp;<span id="leancloud_visitors" class="leancloud_visitors" data-flag-title=""> - </span>次
         <!-- 同时兼容http与https -->
 <script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
 <script>
@@ -25,7 +25,7 @@
       acl.setPublicReadAccess(true);
       acl.setPublicWriteAccess(true);
       // 获得span的所有元素
-      var elements=document.getElementsByClassName('leancloud_visitors');
+      var elements=document.getElementsById('leancloud_visitors');
       // 一次创建多条记录
       var allcounter=[];
       for (var i = 0; i < elements.length ; i++) {
