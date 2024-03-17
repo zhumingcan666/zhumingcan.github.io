@@ -5,34 +5,7 @@
         <title>zhumingcan_web</title>
         <link rel="stylesheet" type="text/css" href="popWindow.css">
         <script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
-        <style type="text/css">
-			*{
-				margin: 0;
-				padding: 0;
-			}
-			.container{
-				width: 300px;
-				height: 300px;
-				margin: 50px auto;
-				background-color: rgba(204,204,204,.6);
-				position: relative;
-			}
-			.btn{
-				display: inline-block;
-				width: 100px;
-				height: 35px;
-				border-radius: 24px;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%,-50%);
-				border: none;
-				outline: none;
-				cursor: pointer;
-				box-shadow: 0 10px 10px rgba(0,0,0,.3);
-			}
-		</style>
-        <link rel="stylesheet" type="text/css" href="css/ripple.css"/>
+        
     </head>
 
     <body background="images/gura.JPG"
@@ -74,9 +47,7 @@
                 <i style="position: relative;left: 68px;font-size: x-large;">留言板</i>
                 <input type="text" id="nameInput" placeholder="Your name" style="width: 192px;"><br>
                 <textarea id="messageInput" placeholder="Your message" style="width: 195px;height: 110px"></textarea><br>
-                <div class="container">
-                    <button type="submit" style="background-color: gold;position: relative;left: 70px;" class="btn ripple-effect">Submit<span class="ripple"></span></button>
-                </div>
+                <button type="submit" style="background-color: gold;position: relative;left: 70px;">Submit</button>
             </form>
         </div>
         <!-- 注册表单 -->
@@ -129,11 +100,4 @@
     </div>
 
     </body>
-    
-    <script src="js/ripple.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-		window.onload = function() {
-			ripple();
-		}
-	</script>
 </html>
