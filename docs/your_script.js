@@ -1,4 +1,5 @@
 // 初始化 LeanCloud
+var { Query, User } = AV;
 AV.init({
   appId: 'HiLEQW3JY361nRTpUYIdu8V3-gzGzoHsz',
   appKey: 'xDW9CgvGM3XNWt5eFp7AOBRA'
