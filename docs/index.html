@@ -6,19 +6,16 @@
         <link rel="stylesheet" type="text/css" href="popWindow.css">
         <script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
     </head>
+
     <body background="images/gura.JPG"
         style="background-repeat:no-repeat;
                 background-size: cover;
                 height: 1800px;
                 width: 1500px;">
 <!--预设脚本如下-->
-        
         <script>
             var visitor = localStorage.getItem('name');
-            if(visitor != "null" && visitor != "" && visitor!=null){
-                let message = "你好, " + visitor + "!欢迎你的再次来访";
-                alert(message);
-            }
+            if(visitor != "null" && visitor != "" && visitor!=null){}
             else{
                 visitor = window.prompt("Please enter your nickname or name to let me know who is visiting\n请输入你的昵称或姓名让我知道是谁在访问","kobe");
                 localStorage.setItem('name',visitor);
@@ -31,61 +28,75 @@
 <!--正式展示内容如下-->
     <div id="mainContent" style="display: none;">
         <div id="repository" class="mainContent">
-            <i style="font-size:xx-large;">个人仓库地址</i><br>
-            <a href="https://github.com/zhumingcan666/ios_Calculator.git"><strong style="color:brown;font-size: x-large;">Calculator</strong></a>
-            <a href="https://github.com/zhumingcan666/CarrotFantasy.git"><strong style="color: brown;font-size: x-large;">CarrotFantasy</strong></a>
+            <i class="title1">个人仓库地址</i><br>
+            <a href="https://github.com/zhumingcan666/ios_Calculator.git" class="title2"><strong style="color:brown;font-size: x-large;">Calculator</strong></a>
+            <a href="https://github.com/zhumingcan666/CarrotFantasy.git" class="title2"><strong style="color: brown;font-size: x-large;">CarrotFantasy</strong></a>
         </div>
 
         <div id="books" class="mainContent">
-            <i style="font-size:xx-large;">个人书架</i><br>
-            <strong style="color:brown;font-size: x-large;">SwiftUI与Combine编程</strong>
-            <a href="books/swift.epub"><i>在线阅读</i></a> <i style="font-size: x-large;">or</i> <a href="books/swift.epub" download><i>下载</i></a>
+            <i class="title1">个人书架</i><br>
+            <strong class="title2">SwiftUI与Combine编程</strong>
+            </i> <a href="http://lc-HiLEQW3J.cn-n1.lcfile.com/YRcdLiLTWQ1lbPoNO9ToNpCnkhFqx0vD/SwiftUI%20%E5%92%8C%20Combine%20%E7%BC%96%E7%A8%8B%20%28%E7%8E%8B%20%E5%B7%8D%29%20%28Z-Library%29.epub" download><i>下载</i></a>
         </div>
+   
+
+        <!-- 留言表单 -->
+        <div style="display: inline-block;">
+            <form id="messageForm" style="border:5px double grey;width: 200px;position: relative;top: 98px;">
+                <i style="position: relative;left: 68px;font-size: x-large;">留言板</i>
+                <input type="text" id="nameInput" placeholder="Your name" style="width: 192px;"><br>
+                <textarea id="messageInput" placeholder="Your message" style="width: 195px;height: 110px"></textarea><br>
+                <button type="submit" style="background-color: gold;position: relative;left: 70px;">Submit</button>
+            </form>
+        </div>
+        <!-- 注册表单 -->
+        <div style="display: inline-block;">
+            <form id="signupForm" style="border:5px double grey;width: 200px;height: 200px;">
+                <i style="position: relative;left: 50px;font-size: x-large;">注册用户</i>
+                <input type="email" id="emailInput" placeholder="Your email" style="width: 192px;"><br>
+                <input type="password" id="passwordInput" placeholder="Your password" style="width: 192px;"><br>
+                <button type="submit" style="background-color: gold;position: relative;left: 70px;">Sign up</button>
+            </form>
+        </div>
+        <!-- 显示留言列表 -->
+            <ul id="messageList"></ul>
+        <!-- 负责leanCloud处理js文件 -->
+            <script src="your_script.js"></script>
+        
+
     </div>
 
-    <h1>Welcome to My Website</h1>
-  <!-- 留言表单 -->
-  <form id="messageForm">
-    <input type="text" id="nameInput" placeholder="Your name"><br>
-    <textarea id="messageInput" placeholder="Your message"></textarea><br>
-    <button type="submit">Submit</button>
-  </form>
-  <!-- 注册表单 -->
-  <form id="signupForm">
-    <input type="email" id="emailInput" placeholder="Your email"><br>
-    <input type="password" id="passwordInput" placeholder="Your password"><br>
-    <button type="submit">Sign up</button>
-  </form>
-  <!-- 显示留言列表 -->
-  <ul id="messageList"></ul>
-<script src="your_script.js"></script>
-
 <!--以下为非正式页面内容-->
-
-        <div id="overLay">
-            <div class="popUp">
-                <i class="popUpTitle">WELCOME!</i><br>
-                <i class="popUpContent">随便看看吧</i>
-                <div class="popUpButtomBlock">
-                    <button class="popUpButton" onclick="checked()">已阅</button>
-                    <button class="popUpButton" onclick="checked()">滚滚滚</button>
-                </div>
-            </div>
-
+    <div id="overLay">
+        <div class="popUp">
+            <i class="popUpTitle">WELCOME!</i><br>
+            <i id="greet" class="popUpContent">陌生人，随便看看吧</i>
             <script>
-                function checked(){
-                    var overLay = document.getElementById("overLay");
-                    var others = document.getElementById("mainContent");
-                    overLay.style.display = "none";
-                    others.style.display = "block";
+                var visitor = localStorage.getItem('name');
+                if(visitor != "null" && visitor != "" && visitor!=null){
+                    document.getElementById("greet").innerHTML = visitor+", 随便看看吧";
                 }
-                function showPopWindow(){
-                    var overLay = document.getElementById("overLay");
-                    overLay.style.display = "block";
-                }
-                window.onload = showPopWindow;
             </script>
+            <div class="popUpButtomBlock">
+                <button class="popUpButton" onclick="checked()">已阅</button>
+                <button class="popUpButton" onclick="checked()">滚滚滚</button>
+            </div>
         </div>
+
+        <script>
+            function checked(){
+                var overLay = document.getElementById("overLay");
+                var others = document.getElementById("mainContent");
+                overLay.style.display = "none";
+                others.style.display = "block";
+            }
+            function showPopWindow(){
+                var overLay = document.getElementById("overLay");
+                overLay.style.display = "block";
+            }
+            window.onload = showPopWindow;
+        </script>
+    </div>
 
 
     </body>
