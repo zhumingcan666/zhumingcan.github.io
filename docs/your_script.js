@@ -2,7 +2,8 @@
 var { Query, User } = AV;
 AV.init({
   appId: 'HiLEQW3JY361nRTpUYIdu8V3-gzGzoHsz',
-  appKey: 'xDW9CgvGM3XNWt5eFp7AOBRA'
+  appKey: 'xDW9CgvGM3XNWt5eFp7AOBRA',
+  serverURL: 'https://hileqw3j.lc-cn-n1-shared.com',
 });
 
 // 留言表单提交事件处理
