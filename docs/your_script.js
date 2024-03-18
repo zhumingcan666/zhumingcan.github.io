@@ -46,7 +46,6 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
   user.signUp().then(function() {
     // 注册成功
     console.log('User signed up successfully!');
-    location.reload();
     alert("注册成功！欢迎您的加入！")
   }).catch(function(error) {
     console.error('Failed to sign up: ' + error.message);
