@@ -68,7 +68,7 @@ function updateMessageList() {
     for (var i = 0; i < messages.length; i++) {
       var name = messages[i].get('name');
       var message = messages[i].get('message');
-      var time = message[i].get('name');
+      var time = message[i].get('time');
 
       var listItem = document.createElement('li');
       listItem.textContent = name + ': ' + message + '            ----' + time;
