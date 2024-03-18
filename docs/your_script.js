@@ -1,4 +1,4 @@
-// ³õÊ¼»¯ LeanCloud
+// åˆå§‹åŒ– LeanCloud
 var { Query, User } = AV;
 AV.init({
   appId: 'HiLEQW3JY361nRTpUYIdu8V3-gzGzoHsz',
@@ -6,20 +6,17 @@ AV.init({
   serverURL: 'https://hileqw3j.lc-cn-n1-shared.com',
 });
 
-// ÁôÑÔ±íµ¥Ìá½»ÊÂ¼ş´¦Àí
+// ç•™è¨€è¡¨å•æäº¤äº‹ä»¶å¤„ç†
 document.getElementById('messageForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // ×èÖ¹±íµ¥Ìá½»µÄÄ¬ÈÏĞĞÎª
+  event.preventDefault(); // é˜»æ­¢è¡¨å•æäº¤çš„é»˜è®¤è¡Œä¸º
 
   var name = document.getElementById('nameInput').value;
   var message = document.getElementById('messageInput').value;
 
-  const now = new Date();
-  const formattedTime = now.toLocaleString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).replace(/[^\\d]/g, '');
-  var time = formattedTime;
+  var now = new Date();
+  var time = now.toUTCString();
 
-
-
-  // ´´½¨Ò»¸öÃûÎª "Message" µÄ LeanCloud ¶ÔÏó
+  // åˆ›å»ºä¸€ä¸ªåä¸º "Message" çš„ LeanCloud å¯¹è±¡
   var Message = AV.Object.extend('Message');
   var newMessage = new Message();
   newMessage.set('name', name);
@@ -27,47 +24,47 @@ document.getElementById('messageForm').addEventListener('submit', function(event
   newMessage.set('time',time);
 
   newMessage.save().then(function() {
-    // Çå¿Õ±íµ¥×Ö¶Î
+    // æ¸…ç©ºè¡¨å•å­—æ®µ
     document.getElementById('messageInput').value = '';
 
-    // ¸üĞÂÁôÑÔÁĞ±í
+    // æ›´æ–°ç•™è¨€åˆ—è¡¨
     updateMessageList();
   }).catch(function(error) {
     console.error('Failed to save message: ' + error.message);
   });
 });
 
-// ×¢²á±íµ¥Ìá½»ÊÂ¼ş´¦Àí
+// æ³¨å†Œè¡¨å•æäº¤äº‹ä»¶å¤„ç†
 document.getElementById('signupForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // ×èÖ¹±íµ¥Ìá½»µÄÄ¬ÈÏĞĞÎª
+  event.preventDefault(); // é˜»æ­¢è¡¨å•æäº¤çš„é»˜è®¤è¡Œä¸º
 
   var email = document.getElementById('emailInput').value;
   var password = document.getElementById('passwordInput').value;
 
-  // ´´½¨ LeanCloud ÓÃ»§
+  // åˆ›å»º LeanCloud ç”¨æˆ·
   var user = new AV.User();
   user.setUsername(email);
   user.setPassword(password);
 
   user.signUp().then(function() {
-    // ×¢²á³É¹¦
+    // æ³¨å†ŒæˆåŠŸ
     console.log('User signed up successfully!');
     document.getElementById("emailInput").value = "";
     document.getElementById("passwordInput").value = "";
-    alert("×¢²á³É¹¦£¡»¶Ó­ÄúµÄ¼ÓÈë£¡");
+    alert("æ³¨å†ŒæˆåŠŸï¼æ¬¢è¿æ‚¨çš„åŠ å…¥ï¼");
   }).catch(function(error) {
     console.error('Failed to sign up: ' + error.message);
   });
 });
 
-// ¸üĞÂÁôÑÔÁĞ±í
+// æ›´æ–°ç•™è¨€åˆ—è¡¨
 function updateMessageList() {
   var query = new AV.Query('Message');
   query.find().then(function(messages) {
     var messageList = document.getElementById('messageList');
-    messageList.innerHTML = ''; // Çå¿ÕÁôÑÔÁĞ±í
+    messageList.innerHTML = ''; // æ¸…ç©ºç•™è¨€åˆ—è¡¨
 
-    // ±éÀúÁôÑÔ£¬²¢ÔÚÁĞ±íÖĞÏÔÊ¾
+    // éå†ç•™è¨€ï¼Œå¹¶åœ¨åˆ—è¡¨ä¸­æ˜¾ç¤º
     for (var i = 0; i < messages.length; i++) {
       var name = messages[i].get('name');
       var message = messages[i].get('message');
@@ -83,7 +80,7 @@ function updateMessageList() {
   });
 }
 
-// Ò³Ãæ¼ÓÔØÍê³Éºó£¬¸üĞÂÁôÑÔÁĞ±í
+// é¡µé¢åŠ è½½å®Œæˆåï¼Œæ›´æ–°ç•™è¨€åˆ—è¡¨
 document.addEventListener('DOMContentLoaded', function() {
   updateMessageList();
 });
