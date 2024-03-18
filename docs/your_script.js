@@ -21,7 +21,6 @@ document.getElementById('messageForm').addEventListener('submit', function(event
 
   newMessage.save().then(function() {
     // 清空表单字段
-    document.getElementById('nameInput').value = '';
     document.getElementById('messageInput').value = '';
 
     // 更新留言列表
@@ -46,6 +45,8 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
   user.signUp().then(function() {
     // 注册成功
     console.log('User signed up successfully!');
+    document.getElementById("emailInput").value = "";
+    document.getElementById("passwordInput").value = "";
     alert("注册成功！欢迎您的加入！")
   }).catch(function(error) {
     console.error('Failed to sign up: ' + error.message);
